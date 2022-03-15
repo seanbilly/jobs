@@ -6,7 +6,7 @@ import Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 
-IO.puts "=========> #{System.get_env('GITHUB_ACTIONS')}"
+IO.puts "=========> #{System.get_env("GITHUB_ACTIONS")}"
 
 
 config :jobs, Jobs.Repo,
