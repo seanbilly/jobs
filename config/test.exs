@@ -19,7 +19,7 @@ config :jobs, Jobs.Repo,
   pool_size: 10
 
 if System.get_env("GITHUB_ACTIONS") do
-  config :app, Jobs.Repo,
+  config :jobs, Jobs.Repo,
     username: "postgres",
     password: "postgres",
     hostname: "localhost",
