@@ -12,7 +12,9 @@ IO.puts "=========> #{System.get_env("GITHUB_ACTIONS")}"
 config :jobs, Jobs.Repo,
   username: "postgres",
   password: "postgres",
-  hostname: System.get_env("DB_HOST") || "localhost",
+  # hostname: System.get_env("DB_HOST") || "localhost",
+  hostname: "localhost",
+
   database: "jobs_test#{System.get_env("MIX_TEST_PARTITION")}",
   # port: System.get_env("DATABASE_PORT") |> String.to_integer || 5433,
   pool: Ecto.Adapters.SQL.Sandbox,
