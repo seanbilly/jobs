@@ -21,8 +21,6 @@ jobs:
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: jobs_test
         ports: ['5432:5432']
-        # ports:
-        #   - 5432/tcp
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
@@ -44,3 +42,8 @@ jobs:
       env:
         DB_HOST: postgres
       run: mix test
+    - name: Log in to Docker Hub
+      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      with:
+        username: ${{ secrets.DOCKER_HUB_USER }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
